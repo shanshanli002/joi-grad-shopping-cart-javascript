@@ -18,15 +18,18 @@ export default class ShoppingCart {
     checkout = () => {
         let totalPrice = 0;
         let loyaltyPointsEarned = 0;
-
+        
         this.products.forEach(product => {
             let discount = 0;
             if (product.code.startsWith("DIS_10")) {
-                discount = product.price * 0.1;
+                discount = Math.round((product.price * 0.1)*100)/100;
                 loyaltyPointsEarned += product.price / 10;
             } else if (product.code.startsWith("DIS_15")) {
-                discount = product.price * 0.15;
+                discount = Math.round((product.price * 0.15)*100)/100;
                 loyaltyPointsEarned += product.price / 15;
+            } else if (product.code.startsWith("DIS_20")) {
+                discount = Math.round((product.price * 0.2)*100)/100;
+                loyaltyPointsEarned += product.price / 20;
             } else {
                 loyaltyPointsEarned += product.price / 5;
             }

@@ -13,7 +13,7 @@ const shoppingCart = new ShoppingCart(customer, products);
 const productThree = new Product(30.0, "PRODUCT3", "Product 3");
 shoppingCart.addProduct(productThree);
 
-console.log(shoppingCart.displaySummary())
+console.log(shoppingCart.displaySummary());
 
 const order = shoppingCart.checkout();
 
